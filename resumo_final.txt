@@ -1,0 +1,63 @@
+==========================================================================================
+RESUMO FINAL - MELHOR VARIANTE DE CADA ARQUÉTIPO
+==========================================================================================
+
+End of Turnadin:
+  Melhor variante : Deck 1  (P(melhor) = 63.8%)
+  Deck code       : AAECAZ8FBPD+BsODB8avB+XBBw3JoAS6lgfXlwfOmwf1rwfiwQfqwQf2wQeDwgfmxQerxge66AfQ6gcAAA==
+  Gráfico salvo em: posteriors_End_of_Turnadin.png
+
+No Hand Hunter:
+  Melhor variante : Deck 1  (P(melhor) = 99.7%)
+  Deck code       : AAECAR8EmacHmqcHm6cHxbEHDamfBKqfBNOeBq+SB4WVB86bB+6fB5CnB5inB8u2B7TAB7nAB7vABwAA
+  Gráfico salvo em: posteriors_No_Hand_Hunter.png
+
+Token Druid:
+  Melhor variante : Deck 1  (P(melhor) = 82.1%)
+  Deck code       : AAECAZICBMODB6+HB7ifB+DABw2unwSB1ASIgweuhweSlweUlwfXlwfanQeqrwfXwAfbwAfswAf2wQcAAA==
+  Gráfico salvo em: posteriors_Token_Druid.png
+
+Quest Mage:
+  Melhor variante : Deck 1  (P(melhor) = 56.7%)
+  Deck code       : AAECAf0EBu/8BsODB7OHB6ebB/KyB5PaBwyb8gbxkQewmwf6mwfVnQfRpgfLtgf5wweGxAeSxAeG4AecgggAAA==
+  Gráfico salvo em: posteriors_Quest_Mage.png
+
+Leyline Mage:
+  Melhor variante : Deck 1  (P(melhor) = 61.0%)
+  Deck code       : AAECAf0EBJegBIi+B/rEB//fBw2zhwfopQeLsQfWvAeSxAfnxAfoxAfwxAfzxAf0xAf7xAesxgeT2gcAAA==
+  Gráfico salvo em: posteriors_Leyline_Mage.png
+
+Companion Hunter:
+  Melhor variante : Deck 1  (P(melhor) = 55.0%)
+  Deck code       : AAECAR8InaAEqYEHmacHmqcHm6cHxbEHg8AH5MQHC6mfBOKJB6+SB+6fB8u2B7vAB97EB+DEB+PEB/nEB6H9BwAA
+  Gráfico salvo em: posteriors_Companion_Hunter.png
+
+Dude Paladin:
+  Melhor variante : Deck 1  (P(melhor) = 60.5%)
+  Deck code       : AAECAZ8FCPD+BsODB9eXB42dB8avB+XBB4TEB+jFBwvJoASU9QW6lgfOmwf1rwf2wQeDwgfkxQfmxQfnxQfD4wcAAA==
+  Gráfico salvo em: posteriors_Dude_Paladin.png
+
+Dragon Warrior:
+  Melhor variante : Deck 1  (P(melhor) = 92.4%)
+  Deck code       : AAECAQcCi6AE0LIHDuPmBqr8Bqv8BveDB+iHB9KXB7etB4+xB+yyB4S9B7XAB5XCB5vCB5zCBwAA
+  Gráfico salvo em: posteriors_Dragon_Warrior.png
+
+Harold Shaman:
+  Melhor variante : Deck 1  (P(melhor) = 98.7%)
+  Deck code       : AAECAaoICq+fBP2fBMODB4KYB9umB9+mB+WmB9C/B4LUB5vUBwrmlgf1rAexsAe8sQePvgfDwAfJwAf3wAf2wQfm/QcAAA==
+  Gráfico salvo em: posteriors_Harold_Shaman.png
+
+No Minion DH:
+  Melhor variante : Deck 1  (P(melhor) = 50.7%)
+  Deck code       : AAECAea5Awa0lweKqgeSqgeTqgensQeUvwcM4fgF3v8G/oMHqocHtpcH550HnrEHobEHwLEH6LEHkr8Hlb8HAAA=
+  Gráfico salvo em: posteriors_No_Minion_DH.png
+
+Burn Mage:
+  Melhor variante : Deck 1  (P(melhor) = 58.9%)
+  Deck code       : AAECAf0EBJegBIi+B9fDB5HGBw39ngSF5gbHhweflgfopQeLsQfWsgfWvAeGxAeSxAebxAesxgeT2gcAAA==
+  Gráfico salvo em: posteriors_Burn_Mage.png
+
+Harold Rogue:
+  Melhor variante : Deck 1  (P(melhor) = 99.2%)
+  Deck code       : AAECAaIHCqGBB5KDB8ODB4KYB+ylB9C/B/bJB4rUB5vUB4jZBwqRnwT3nwTTngaQgwfBlwfHrge0wQfAwQedxQfVxQcAAA==
+  Gráfico salvo em: posteriors_Harold_Rogue.png
