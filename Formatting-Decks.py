@@ -1,86 +1,52 @@
 import json
-import re
 
 INPUT_FILE = "decks.json"
 OUTPUT_FILE = "analysis-ready.json"
 
 
-def extract_deckcode(text: str):
-    if not text:
-        return None
+def convert(raw_data):
+    # suporta tanto {"decks": [...]} quanto lista direta
+    if isinstance(raw_data, dict) and "decks" in raw_data:
+        raw_data = raw_data["decks"]
 
-    match = re.search(r"([A-Za-z0-9+/=]{40,})", text)
-    return match.group(1) if match else None
-
-
-def safe_load_json(path):
-    """
-    Lida com:
-    - lista de dicts
-    - lista de strings
-    - string JSON dupla
-    """
-    with open(path, "r", encoding="utf-8") as f:
-        data = json.load(f)
-
-    # caso 1: JSON veio como string inteira
-    if isinstance(data, str):
-        try:
-            data = json.loads(data)
-        except:
-            return []
-
-    return data
-
-
-def clean_decks(raw_decks):
     arquetipos = {}
 
-    for d in raw_decks:
+    for d in raw_data:
+        # segurança contra entradas quebradas
+        if not isinstance(d, dict):
+            continue
 
-        # ----------------------------
-        # FIX PRINCIPAL DO SEU ERRO
-        # ----------------------------
-        if isinstance(d, str):
-            # tenta extrair direto da string
-            deckcode = extract_deckcode(d)
-            if not deckcode:
-                continue
+        archetype = d.get("archetype")
+        deck_code = d.get("deckcode")
+        winrate = d.get("winrate")
+        games = d.get("games")
 
-            archetype = "Unknown"
-            winrate = None
-            games = None
-
-        else:
-            archetype = d.get("archetype")
-            if not archetype:
-                continue
-
-            deckcode = extract_deckcode(d.get("deckcode", ""))
-            winrate = d.get("winrate")
-            games = d.get("games")
-
-        if not deckcode:
+        if not archetype or not deck_code:
             continue
 
         # validação numérica
         try:
-            winrate = float(winrate) if winrate is not None else None
-            games = int(games) if games is not None else None
-        except:
+            winrate = float(winrate)
+            games = int(games)
+        except (TypeError, ValueError):
             continue
 
-        if winrate is None or games is None:
-            continue
-
+        # inicializa lista do arquétipo
         if archetype not in arquetipos:
             arquetipos[archetype] = []
 
         arquetipos[archetype].append({
-            "deck_code": deckcode,
+            "deck_code": deck_code.strip(),
             "winrate": winrate,
             "jogos": games
         })
+
+    # opcional: ordenar por "qualidade estatística" (winrate + volume)
+    for archetype in arquetipos:
+        arquetipos[archetype].sort(
+            key=lambda x: (x["winrate"], x["jogos"]),
+            reverse=True
+        )
 
     return arquetipos
 
@@ -88,12 +54,13 @@ def clean_decks(raw_decks):
 # -----------------------------
 # LOAD
 # -----------------------------
-raw_decks = safe_load_json(INPUT_FILE)
+with open(INPUT_FILE, "r", encoding="utf-8") as f:
+    raw_data = json.load(f)
 
 # -----------------------------
-# CLEAN
+# CONVERT
 # -----------------------------
-arquetipos = clean_decks(raw_decks)
+arquetipos = convert(raw_data)
 
 # -----------------------------
 # SAVE
@@ -102,4 +69,4 @@ with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
     json.dump(arquetipos, f, indent=4, ensure_ascii=False)
 
 print(f"OK - Arquivo gerado: {OUTPUT_FILE}")
-print(f"Arquetipos encontrados: {len(arquetipos)}")
+print(f"Arquétipos encontrados: {len(arquetipos)}")
