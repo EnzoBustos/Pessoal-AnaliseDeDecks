@@ -12,14 +12,14 @@ from urllib.parse import urljoin
 import requests
 from bs4 import BeautifulSoup
 
-from utils.constants import HEADERS
+from config import HEADERS, REQUEST_RETRIES, REQUEST_TIMEOUT_SECONDS, RETRY_BACKOFF_SECONDS
 from utils.io import save_json
 
 
 LOGGER = logging.getLogger(__name__)
 
 
-def request_with_retry(url: str, retries: int = 3, timeout: int = 30) -> requests.Response:
+def request_with_retry(url: str, retries: int = REQUEST_RETRIES, timeout: int = REQUEST_TIMEOUT_SECONDS) -> requests.Response:
     """Fetch a URL with a small retry policy."""
 
     last_error: Exception | None = None
@@ -31,7 +31,7 @@ def request_with_retry(url: str, retries: int = 3, timeout: int = 30) -> request
         except requests.RequestException as error:
             last_error = error
             LOGGER.warning("Falha ao baixar %s (%s/%s): %s", url, attempt + 1, retries, error)
-            time.sleep(1.0 + attempt)
+            time.sleep(RETRY_BACKOFF_SECONDS + attempt)
 
     assert last_error is not None
     raise last_error

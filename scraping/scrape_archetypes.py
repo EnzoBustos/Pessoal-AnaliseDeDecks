@@ -7,21 +7,20 @@ import re
 from pathlib import Path
 from urllib.parse import quote_plus
 
+from config import ARCHETYPE_META_PATH, BASE_URL, MIN_GAMES
 from scraping.scraper_utils import download_page, parse_table, resolve_url, save_json_file
 from utils.helpers import configure_utf8_console
-from utils.constants import MIN_GAMES
 from utils.paths import RAW_DATA_DIR
 
 
 LOGGER = logging.getLogger(__name__)
-BASE_URL = "https://www.hsguru.com"
 
 
 def scrape_archetypes(output_path: Path | None = None) -> list[dict[str, object]]:
     """Scrape all archetypes from the HSGuru meta page."""
 
     target_path = output_path or (RAW_DATA_DIR / "archetypes.json")
-    html = download_page(f"{BASE_URL}/meta?format=2")
+    html = download_page(f"{BASE_URL}{ARCHETYPE_META_PATH}")
     soup = parse_table(html)
 
     archetypes: list[dict[str, object]] = []

@@ -10,6 +10,13 @@ import pandas as pd
 from scipy import optimize, stats
 from scipy.special import betaln
 
+from config import (
+    METHOD_OF_MOMENTS_VARIANCE_FLOOR,
+    PRIOR_BOUNDS,
+    PRIOR_METHOD,
+    PRIOR_START_FLOOR,
+)
+
 
 @dataclass(slots=True)
 class PriorEstimate:
@@ -26,18 +33,18 @@ def _safe_moments_prior(wins: np.ndarray, losses: np.ndarray) -> tuple[float, fl
 
     games = wins + losses
     if np.sum(games) <= 0:
-        return 1.0, 1.0
+        return PRIOR_START_FLOOR, PRIOR_START_FLOOR
 
     observed_mean = np.sum(wins) / np.sum(games)
     proportions = np.divide(wins, games, out=np.zeros_like(wins, dtype=float), where=games > 0)
     weighted_var = np.average((proportions - observed_mean) ** 2, weights=np.maximum(games, 1.0))
-    weighted_var = float(max(weighted_var, 1e-6))
+    weighted_var = float(max(weighted_var, METHOD_OF_MOMENTS_VARIANCE_FLOOR))
 
     concentration = observed_mean * (1.0 - observed_mean) / weighted_var - 1.0
-    concentration = float(max(concentration, 1e-3))
+    concentration = float(max(concentration, PRIOR_START_FLOOR))
 
-    alpha = max(observed_mean * concentration, 1e-3)
-    beta = max((1.0 - observed_mean) * concentration, 1e-3)
+    alpha = max(observed_mean * concentration, PRIOR_START_FLOOR)
+    beta = max((1.0 - observed_mean) * concentration, PRIOR_START_FLOOR)
     return alpha, beta
 
 
@@ -63,12 +70,12 @@ def estimate_beta_prior(deck_frame: pd.DataFrame) -> PriorEstimate:
         objective,
         x0=np.log([init_alpha, init_beta]),
         method="L-BFGS-B",
-        bounds=[(-12.0, 12.0), (-12.0, 12.0)],
+        bounds=[PRIOR_BOUNDS, PRIOR_BOUNDS],
     )
 
     if result.success:
         alpha, beta = np.exp(result.x)
-        return PriorEstimate(float(alpha), float(beta), "empirical_bayes", float(result.fun))
+        return PriorEstimate(float(alpha), float(beta), PRIOR_METHOD, float(result.fun))
 
     fallback_objective = objective(np.log([init_alpha, init_beta]))
     return PriorEstimate(float(init_alpha), float(init_beta), "method_of_moments", float(fallback_objective))

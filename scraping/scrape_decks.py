@@ -3,13 +3,14 @@
 from __future__ import annotations
 
 import logging
+import re
 import time
 from pathlib import Path
-import re
 
 from bs4 import BeautifulSoup
 from playwright.sync_api import sync_playwright
 
+from config import HEADLESS_BROWSER, NETWORK_IDLE_WAIT_UNTIL, SCROLL_STABLE_ROUNDS, SCROLL_WAIT_SECONDS
 from scraping.scrape_deckcodes import extract_deckcode
 from scraping.scraper_utils import save_json_file
 from utils.helpers import configure_utf8_console
@@ -20,7 +21,6 @@ from utils.paths import RAW_DATA_DIR
 LOGGER = logging.getLogger(__name__)
 INPUT_FILE = RAW_DATA_DIR / "archetypes.json"
 OUTPUT_FILE = RAW_DATA_DIR / "decks.json"
-BASE_URL = "https://www.hsguru.com"
 
 
 def _load_archetypes(path: Path = INPUT_FILE) -> list[dict[str, object]]:
@@ -106,7 +106,7 @@ def scrape_decks(input_path: Path = INPUT_FILE, output_path: Path = OUTPUT_FILE)
     seen: dict[str, set[str]] = {}
 
     with sync_playwright() as playwright:
-        browser = playwright.chromium.launch(headless=True)
+        browser = playwright.chromium.launch(headless=HEADLESS_BROWSER)
         page = browser.new_page()
 
         for archetype in archetypes:
@@ -114,14 +114,14 @@ def scrape_decks(input_path: Path = INPUT_FILE, output_path: Path = OUTPUT_FILE)
             seen.setdefault(archetype_name, set())
 
             LOGGER.info("Scraping %s", archetype_name)
-            page.goto(str(archetype["decks_url"]), wait_until="networkidle")
+            page.goto(str(archetype["decks_url"]), wait_until=NETWORK_IDLE_WAIT_UNTIL)
 
             last_height = 0
             stable_rounds = 0
 
             while True:
                 page.evaluate("window.scrollTo(0, document.body.scrollHeight)")
-                time.sleep(1.5)
+                time.sleep(SCROLL_WAIT_SECONDS)
 
                 decks = _extract_decks(page.content(), archetype)
                 new_count = 0
@@ -140,7 +140,7 @@ def scrape_decks(input_path: Path = INPUT_FILE, output_path: Path = OUTPUT_FILE)
                     stable_rounds = 0
 
                 last_height = current_height
-                if stable_rounds >= 2:
+                if stable_rounds >= SCROLL_STABLE_ROUNDS:
                     break
 
                 LOGGER.info("%s | +%s novos decks | total=%s", archetype_name, new_count, len(seen[archetype_name]))

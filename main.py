@@ -19,6 +19,15 @@ from analysis.reliability import compute_reliability_score
 from analysis.report import generate_html_report
 from analysis.statistics import compute_archetype_statistics
 from config import AnalysisConfig
+from config import (
+    ANALYSIS_CSV_NAME,
+    ARCHETYPE_STATS_CSV_NAME,
+    ARCHETYPE_TOP_DECKS_CSV_NAME,
+    REPORT_FILE_NAME,
+    RANKING_CSV_NAME,
+    DECK_STATS_CSV_NAME,
+    SUMMARY_FILE_NAME,
+)
 from visualization.forest import plot_forest
 from visualization.heatmap import plot_heatmap
 from visualization.posterior import plot_posterior_curves, plot_shrinkage
@@ -74,22 +83,22 @@ def run_analysis(config: AnalysisConfig | None = None) -> dict[str, Path]:
         key: Path(relpath(path, start=config.paths.output_reports_dir)).as_posix()
         for key, path in figure_paths.items()
     }
-    for path in plot_archetype_rankings(deck_ranking, config.paths.output_figures_dir / "archetypes", top_n=5):
+    for path in plot_archetype_rankings(deck_ranking, config.paths.output_figures_dir / "archetypes", top_n=config.archetype_rank_plot_size):
         graph_paths[f"archetype_{path.stem}"] = Path(relpath(path, start=config.paths.output_reports_dir)).as_posix()
 
     logger.info("Exportando CSVs")
-    save_dataframe_csv(deck_frame, config.paths.output_csv_dir / "analysis.csv")
-    save_dataframe_csv(deck_ranking, config.paths.output_csv_dir / "deck_statistics.csv")
-    save_dataframe_csv(archetype_ranking, config.paths.output_csv_dir / "archetype_statistics.csv")
-    save_dataframe_csv(archetype_top_decks, config.paths.output_csv_dir / "archetype_top_decks.csv")
+    save_dataframe_csv(deck_frame, config.paths.output_csv_dir / ANALYSIS_CSV_NAME)
+    save_dataframe_csv(deck_ranking, config.paths.output_csv_dir / DECK_STATS_CSV_NAME)
+    save_dataframe_csv(archetype_ranking, config.paths.output_csv_dir / ARCHETYPE_STATS_CSV_NAME)
+    save_dataframe_csv(archetype_top_decks, config.paths.output_csv_dir / ARCHETYPE_TOP_DECKS_CSV_NAME)
     save_dataframe_csv(
         pd.concat([deck_ranking.assign(kind="deck"), archetype_ranking.assign(kind="archetype")], ignore_index=True, sort=False),
-        config.paths.output_csv_dir / "ranking.csv",
+        config.paths.output_csv_dir / RANKING_CSV_NAME,
     )
 
     logger.info("Gerando relatório HTML")
     report_path = generate_html_report(
-        config.paths.output_reports_dir / "report.html",
+        config.paths.output_reports_dir / REPORT_FILE_NAME,
         deck_ranking,
         archetype_ranking,
         deck_ranking,
@@ -102,7 +111,7 @@ def run_analysis(config: AnalysisConfig | None = None) -> dict[str, Path]:
 
     summary_lines = ["Resumo final por arquétipo", ""]
     for archetype, group in deck_ranking.groupby("archetype", sort=False):
-        top = group.sort_values(["reliability_score", "posterior_mean", "jogos"], ascending=[False, False, False]).head(3)
+        top = group.sort_values(["reliability_score", "posterior_mean", "jogos"], ascending=[False, False, False]).head(config.archetype_summary_top_n)
         summary_lines.append(archetype)
         for row in top.itertuples():
             summary_lines.append(
@@ -112,7 +121,7 @@ def run_analysis(config: AnalysisConfig | None = None) -> dict[str, Path]:
             )
         summary_lines.append("")
 
-    summary_path = config.paths.output_reports_dir / "resumo_final.txt"
+    summary_path = config.paths.output_reports_dir / SUMMARY_FILE_NAME
     summary_text = "\n".join(summary_lines)
     summary_path.write_text(summary_text, encoding="utf-8")
     Path("resumo_final.txt").write_text(summary_text, encoding="utf-8")
@@ -122,10 +131,10 @@ def run_analysis(config: AnalysisConfig | None = None) -> dict[str, Path]:
     logger.info("Melhor deck: %s", deck_ranking.iloc[0]["deck_code"])
 
     return {
-        "analysis_csv": config.paths.output_csv_dir / "analysis.csv",
-        "deck_statistics_csv": config.paths.output_csv_dir / "deck_statistics.csv",
-        "archetype_statistics_csv": config.paths.output_csv_dir / "archetype_statistics.csv",
-        "ranking_csv": config.paths.output_csv_dir / "ranking.csv",
+        "analysis_csv": config.paths.output_csv_dir / ANALYSIS_CSV_NAME,
+        "deck_statistics_csv": config.paths.output_csv_dir / DECK_STATS_CSV_NAME,
+        "archetype_statistics_csv": config.paths.output_csv_dir / ARCHETYPE_STATS_CSV_NAME,
+        "ranking_csv": config.paths.output_csv_dir / RANKING_CSV_NAME,
         "report_html": report_path,
         "summary_txt": summary_path,
         "graphs_dir": config.paths.output_figures_dir,

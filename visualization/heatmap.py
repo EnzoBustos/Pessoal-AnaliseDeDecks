@@ -7,6 +7,8 @@ from pathlib import Path
 import matplotlib.pyplot as plt
 import pandas as pd
 
+from config import FIG_DPI, HEATMAP_CMAP, HEATMAP_FIGSIZE_MIN_HEIGHT, HEATMAP_FIGSIZE_ROW_HEIGHT, HEATMAP_FIGSIZE_WIDTH
+
 
 def plot_heatmap(archetype_ranking: pd.DataFrame, output_dir: Path) -> Path:
     """Draw a lightweight heatmap using matplotlib only."""
@@ -27,13 +29,13 @@ def plot_heatmap(archetype_ranking: pd.DataFrame, output_dir: Path) -> Path:
     frame = archetype_ranking[["archetype"] + columns].copy().head(20)
     matrix = frame[columns].to_numpy(dtype=float)
 
-    plt.figure(figsize=(12, max(5, 0.42 * len(frame))))
-    plt.imshow(matrix, aspect="auto", cmap="YlGnBu")
+    plt.figure(figsize=(HEATMAP_FIGSIZE_WIDTH, max(HEATMAP_FIGSIZE_MIN_HEIGHT, HEATMAP_FIGSIZE_ROW_HEIGHT * len(frame))))
+    plt.imshow(matrix, aspect="auto", cmap=HEATMAP_CMAP)
     plt.colorbar(label="Normalized value")
     plt.yticks(range(len(frame)), frame["archetype"].tolist())
     plt.xticks(range(len(columns)), columns, rotation=35, ha="right")
     plt.title("Heatmap de estatísticas por arquétipo")
     plt.tight_layout()
-    plt.savefig(path, dpi=180)
+    plt.savefig(path, dpi=FIG_DPI)
     plt.close()
     return path

@@ -7,6 +7,8 @@ from pathlib import Path
 import matplotlib.pyplot as plt
 import pandas as pd
 
+from config import FIG_DPI, PLOT_ACCENT_COLOR, PROBABILITY_FIGSIZE
+
 
 def plot_probability_best(deck_frame: pd.DataFrame, output_dir: Path, top_n: int) -> Path:
     """Plot the probability of each top deck being the best in its archetype."""
@@ -15,13 +17,13 @@ def plot_probability_best(deck_frame: pd.DataFrame, output_dir: Path, top_n: int
     path = output_dir / "probability_best.png"
     frame = deck_frame.sort_values("prob_best", ascending=False).head(top_n)
 
-    plt.figure(figsize=(12, 6))
+    plt.figure(figsize=PROBABILITY_FIGSIZE)
     labels = [f"{row.archetype} #{int(row.deck_rank_in_archetype)}" for row in frame.itertuples()]
-    plt.bar(labels, frame["prob_best"], color="#f59e0b")
+    plt.bar(labels, frame["prob_best"], color=PLOT_ACCENT_COLOR)
     plt.ylabel("Probability of Best")
     plt.xticks(rotation=35, ha="right")
     plt.title("Probabilidade de cada deck ser o melhor do arquétipo")
     plt.tight_layout()
-    plt.savefig(path, dpi=180)
+    plt.savefig(path, dpi=FIG_DPI)
     plt.close()
     return path

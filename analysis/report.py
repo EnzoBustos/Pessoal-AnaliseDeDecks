@@ -7,6 +7,8 @@ from pathlib import Path
 
 import pandas as pd
 
+from config import TOP_ARCHETYPES_GLOBAL, TOP_DECKS_GLOBAL
+
 
 def _table(df: pd.DataFrame, max_rows: int | None = None) -> str:
     frame = df if max_rows is None else df.head(max_rows)
@@ -26,8 +28,8 @@ def generate_html_report(
 ) -> Path:
     """Render a self-contained HTML report with tables, plots, and interpretation."""
 
-    top10_archetypes = archetype_ranking.head(10)
-    top20_decks = deck_ranking.head(20)
+    top10_archetypes = archetype_ranking.head(TOP_ARCHETYPES_GLOBAL)
+    top20_decks = deck_ranking.head(TOP_DECKS_GLOBAL)
     top_decks_by_archetype = archetype_top_decks.copy()
 
     images_html = "".join(
