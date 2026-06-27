@@ -87,6 +87,8 @@ def extract_stats(stats_block):
     # WINRATE (ex: 55.8)
     # -------------------------
     winrate_node = stats_block.select_one("span.tw-text-center.basic-black-text span")
+    if not winrate_node and stats_block.name == "span" and "tw-text-center" in stats_block.get("class", []):
+        winrate_node = stats_block.select_one("span")
     if winrate_node:
         try:
             winrate = float(winrate_node.get_text(strip=True)) / 100
@@ -104,6 +106,8 @@ def extract_stats(stats_block):
     # GAMES (ex: 27624)
     # -------------------------
     games_node = stats_block.select_one("div.column.tag")
+    if not games_node and stats_block.name == "div" and "column" in stats_block.get("class", []) and "tag" in stats_block.get("class", []):
+        games_node = stats_block
     if games_node:
         games_match = re.search(r"Games:\s*([\d,]+)", games_node.get_text(" ", strip=True))
         if games_match:
@@ -161,7 +165,7 @@ def extract_decks(html, archetype):
         # =====================================================
         # STATS
         # =====================================================
-        stats_block = deck.select_one('div[id^="deck_stats"]')
+        stats_block = deck if deck.get("id", "").startswith("deck_stats") else deck.select_one('div[id^="deck_stats"]')
         if not stats_block:
             stats_block = deck.select_one(
                 "div.columns.is-multiline.is-mobile.is-text-overflow"
@@ -177,7 +181,7 @@ def extract_decks(html, archetype):
             "archetype_url": archetype["archetype_url"],
             "decks_url": archetype["decks_url"],
             "deckcode": deckcode,
-            "winrate": winrate,
+            "winrate": round(winrate, 3) if winrate is not None else None,
             "games": games
         })
 

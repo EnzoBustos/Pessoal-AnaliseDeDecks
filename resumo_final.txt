@@ -1,0 +1,9 @@
+==========================================================================================
+RESUMO FINAL - MELHOR VARIANTE DE CADA ARQUÉTIPO
+==========================================================================================
+
+Harold Rogue:
+  Melhor variante : Deck 1  (P(melhor) = 29.5%)
+  Confiança       : BAIXA - praticamente empate estatístico, não decida só por isso
+  Deck code       : AAECAaIHDpGfBKGBB5KDB4KYB9GdB+ylB4aoB4eoB4ioB9C/B/bJB4rUB5vUB4jZBwj3nwSQgwfBlwfHrge0wQfAwQedxQfVxQcAAA==
+  Gráfico salvo em: posteriors_Harold_Rogue.png
