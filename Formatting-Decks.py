@@ -1,3 +1,40 @@
+"""Legacy compatibility helper that copies raw deck data into analysis-ready format.
+
+The new loader reads raw JSON directly, so this script is kept only as a thin
+compatibility wrapper for older workflows.
+"""
+
+from __future__ import annotations
+
+import json
+
+from analysis.loader import load_decks
+from utils.helpers import configure_utf8_console
+from utils.io import save_json
+from utils.paths import RAW_DATA_DIR
+
+
+def main() -> None:
+    """Persist the normalized raw deck list in the legacy analysis-ready format."""
+
+    configure_utf8_console()
+    decks = load_decks()
+    grouped: dict[str, list[dict[str, object]]] = {}
+
+    for _, row in decks.iterrows():
+        grouped.setdefault(str(row["archetype"]), []).append(
+            {
+                "deck_code": row["deck_code"],
+                "winrate": float(row["winrate_observed"]),
+                "jogos": int(row["jogos"]),
+            }
+        )
+
+    save_json(grouped, RAW_DATA_DIR / "analysis-ready.json")
+
+
+if __name__ == "__main__":
+    main()
 import json
 import sys
 

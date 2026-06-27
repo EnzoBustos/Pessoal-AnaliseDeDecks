@@ -1,3 +1,13 @@
+.venv/
+__pycache__/
+*.pyc
+data/output/
+output/
+graficos/
+resumo_final.txt
+analysis-ready.json
+archetypes.json
+decks.json
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]

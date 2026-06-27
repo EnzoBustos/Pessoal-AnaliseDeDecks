@@ -2,191 +2,229 @@
     {
         "name": "End of Turnadin",
         "archetype_url": "https://www.hsguru.com/archetype/End%20of%20Turnadin",
-        "decks_url": "https://www.hsguru.com/decks?min_games=50&player_deck_archetype[]=End+of+Turnadin"
+        "decks_url": "https://www.hsguru.com/decks?min_games=50&player_deck_archetype[]=End+of+Turnadin",
+        "total_games": 57431
     },
     {
         "name": "Dude Paladin",
         "archetype_url": "https://www.hsguru.com/archetype/Dude%20Paladin",
-        "decks_url": "https://www.hsguru.com/decks?min_games=50&player_deck_archetype[]=Dude+Paladin"
+        "decks_url": "https://www.hsguru.com/decks?min_games=50&player_deck_archetype[]=Dude+Paladin",
+        "total_games": 64263
     },
     {
         "name": "Dragon Warrior",
         "archetype_url": "https://www.hsguru.com/archetype/Dragon%20Warrior",
-        "decks_url": "https://www.hsguru.com/decks?min_games=50&player_deck_archetype[]=Dragon+Warrior"
+        "decks_url": "https://www.hsguru.com/decks?min_games=50&player_deck_archetype[]=Dragon+Warrior",
+        "total_games": 65273
     },
     {
         "name": "Harold Shaman",
         "archetype_url": "https://www.hsguru.com/archetype/Harold%20Shaman",
-        "decks_url": "https://www.hsguru.com/decks?min_games=50&player_deck_archetype[]=Harold+Shaman"
+        "decks_url": "https://www.hsguru.com/decks?min_games=50&player_deck_archetype[]=Harold+Shaman",
+        "total_games": 69797
     },
     {
         "name": "No Minion DH",
         "archetype_url": "https://www.hsguru.com/archetype/No%20Minion%20DH",
-        "decks_url": "https://www.hsguru.com/decks?min_games=50&player_deck_archetype[]=No+Minion+DH"
-    },
-    {
-        "name": "Unholy DK",
-        "archetype_url": "https://www.hsguru.com/archetype/Unholy%20DK",
-        "decks_url": "https://www.hsguru.com/decks?min_games=50&player_deck_archetype[]=Unholy+DK"
+        "decks_url": "https://www.hsguru.com/decks?min_games=50&player_deck_archetype[]=No+Minion+DH",
+        "total_games": 7972
     },
     {
         "name": "Egg Warrior",
         "archetype_url": "https://www.hsguru.com/archetype/Egg%20Warrior",
-        "decks_url": "https://www.hsguru.com/decks?min_games=50&player_deck_archetype[]=Egg+Warrior"
+        "decks_url": "https://www.hsguru.com/decks?min_games=50&player_deck_archetype[]=Egg+Warrior",
+        "total_games": 3515
+    },
+    {
+        "name": "Unholy DK",
+        "archetype_url": "https://www.hsguru.com/archetype/Unholy%20DK",
+        "decks_url": "https://www.hsguru.com/decks?min_games=50&player_deck_archetype[]=Unholy+DK",
+        "total_games": 5705
     },
     {
         "name": "No Hand Hunter",
         "archetype_url": "https://www.hsguru.com/archetype/No%20Hand%20Hunter",
-        "decks_url": "https://www.hsguru.com/decks?min_games=50&player_deck_archetype[]=No+Hand+Hunter"
-    },
-    {
-        "name": "Burn Rogue",
-        "archetype_url": "https://www.hsguru.com/archetype/Burn%20Rogue",
-        "decks_url": "https://www.hsguru.com/decks?min_games=50&player_deck_archetype[]=Burn+Rogue"
-    },
-    {
-        "name": "Burn Mage",
-        "archetype_url": "https://www.hsguru.com/archetype/Burn%20Mage",
-        "decks_url": "https://www.hsguru.com/decks?min_games=50&player_deck_archetype[]=Burn+Mage"
+        "decks_url": "https://www.hsguru.com/decks?min_games=50&player_deck_archetype[]=No+Hand+Hunter",
+        "total_games": 57388
     },
     {
         "name": "Merithra Druid",
         "archetype_url": "https://www.hsguru.com/archetype/Merithra%20Druid",
-        "decks_url": "https://www.hsguru.com/decks?min_games=50&player_deck_archetype[]=Merithra+Druid"
+        "decks_url": "https://www.hsguru.com/decks?min_games=50&player_deck_archetype[]=Merithra+Druid",
+        "total_games": 73274
     },
     {
-        "name": "Harold Rogue",
-        "archetype_url": "https://www.hsguru.com/archetype/Harold%20Rogue",
-        "decks_url": "https://www.hsguru.com/decks?min_games=50&player_deck_archetype[]=Harold+Rogue"
+        "name": "Burn Mage",
+        "archetype_url": "https://www.hsguru.com/archetype/Burn%20Mage",
+        "decks_url": "https://www.hsguru.com/decks?min_games=50&player_deck_archetype[]=Burn+Mage",
+        "total_games": 26073
     },
     {
-        "name": "Burn Warrior",
-        "archetype_url": "https://www.hsguru.com/archetype/Burn%20Warrior",
-        "decks_url": "https://www.hsguru.com/decks?min_games=50&player_deck_archetype[]=Burn+Warrior"
+        "name": "Burn Rogue",
+        "archetype_url": "https://www.hsguru.com/archetype/Burn%20Rogue",
+        "decks_url": "https://www.hsguru.com/decks?min_games=50&player_deck_archetype[]=Burn+Rogue",
+        "total_games": 7716
     },
     {
         "name": "Broxigar DH",
         "archetype_url": "https://www.hsguru.com/archetype/Broxigar%20DH",
-        "decks_url": "https://www.hsguru.com/decks?min_games=50&player_deck_archetype[]=Broxigar+DH"
+        "decks_url": "https://www.hsguru.com/decks?min_games=50&player_deck_archetype[]=Broxigar+DH",
+        "total_games": 16511
     },
     {
-        "name": "Token Druid",
-        "archetype_url": "https://www.hsguru.com/archetype/Token%20Druid",
-        "decks_url": "https://www.hsguru.com/decks?min_games=50&player_deck_archetype[]=Token+Druid"
+        "name": "Harold Rogue",
+        "archetype_url": "https://www.hsguru.com/archetype/Harold%20Rogue",
+        "decks_url": "https://www.hsguru.com/decks?min_games=50&player_deck_archetype[]=Harold+Rogue",
+        "total_games": 416196
+    },
+    {
+        "name": "Burn Warrior",
+        "archetype_url": "https://www.hsguru.com/archetype/Burn%20Warrior",
+        "decks_url": "https://www.hsguru.com/decks?min_games=50&player_deck_archetype[]=Burn+Warrior",
+        "total_games": 20404
     },
     {
         "name": "Vanessa Rogue",
         "archetype_url": "https://www.hsguru.com/archetype/Vanessa%20Rogue",
-        "decks_url": "https://www.hsguru.com/decks?min_games=50&player_deck_archetype[]=Vanessa+Rogue"
+        "decks_url": "https://www.hsguru.com/decks?min_games=50&player_deck_archetype[]=Vanessa+Rogue",
+        "total_games": 1978
+    },
+    {
+        "name": "Token Druid",
+        "archetype_url": "https://www.hsguru.com/archetype/Token%20Druid",
+        "decks_url": "https://www.hsguru.com/decks?min_games=50&player_deck_archetype[]=Token+Druid",
+        "total_games": 4900
     },
     {
         "name": "Quest Mage",
         "archetype_url": "https://www.hsguru.com/archetype/Quest%20Mage",
-        "decks_url": "https://www.hsguru.com/decks?min_games=50&player_deck_archetype[]=Quest+Mage"
-    },
-    {
-        "name": "Ace Hunter",
-        "archetype_url": "https://www.hsguru.com/archetype/Ace%20Hunter",
-        "decks_url": "https://www.hsguru.com/decks?min_games=50&player_deck_archetype[]=Ace+Hunter"
+        "decks_url": "https://www.hsguru.com/decks?min_games=50&player_deck_archetype[]=Quest+Mage",
+        "total_games": 40483
     },
     {
         "name": "Companion Hunter",
         "archetype_url": "https://www.hsguru.com/archetype/Companion%20Hunter",
-        "decks_url": "https://www.hsguru.com/decks?min_games=50&player_deck_archetype[]=Companion+Hunter"
+        "decks_url": "https://www.hsguru.com/decks?min_games=50&player_deck_archetype[]=Companion+Hunter",
+        "total_games": 74348
     },
     {
         "name": "Quest Hunter",
         "archetype_url": "https://www.hsguru.com/archetype/Quest%20Hunter",
-        "decks_url": "https://www.hsguru.com/decks?min_games=50&player_deck_archetype[]=Quest+Hunter"
+        "decks_url": "https://www.hsguru.com/decks?min_games=50&player_deck_archetype[]=Quest+Hunter",
+        "total_games": 2858
+    },
+    {
+        "name": "Ace Hunter",
+        "archetype_url": "https://www.hsguru.com/archetype/Ace%20Hunter",
+        "decks_url": "https://www.hsguru.com/decks?min_games=50&player_deck_archetype[]=Ace+Hunter",
+        "total_games": 1211
     },
     {
         "name": "Egglock",
         "archetype_url": "https://www.hsguru.com/archetype/Egglock",
-        "decks_url": "https://www.hsguru.com/decks?min_games=50&player_deck_archetype[]=Egglock"
+        "decks_url": "https://www.hsguru.com/decks?min_games=50&player_deck_archetype[]=Egglock",
+        "total_games": 3891
     },
     {
         "name": "Leyline Mage",
         "archetype_url": "https://www.hsguru.com/archetype/Leyline%20Mage",
-        "decks_url": "https://www.hsguru.com/decks?min_games=50&player_deck_archetype[]=Leyline+Mage"
+        "decks_url": "https://www.hsguru.com/decks?min_games=50&player_deck_archetype[]=Leyline+Mage",
+        "total_games": 104703
     },
     {
         "name": "Harold DH",
         "archetype_url": "https://www.hsguru.com/archetype/Harold%20DH",
-        "decks_url": "https://www.hsguru.com/decks?min_games=50&player_deck_archetype[]=Harold+DH"
-    },
-    {
-        "name": "Harold Warrior",
-        "archetype_url": "https://www.hsguru.com/archetype/Harold%20Warrior",
-        "decks_url": "https://www.hsguru.com/decks?min_games=50&player_deck_archetype[]=Harold+Warrior"
-    },
-    {
-        "name": "Quest Warrior",
-        "archetype_url": "https://www.hsguru.com/archetype/Quest%20Warrior",
-        "decks_url": "https://www.hsguru.com/decks?min_games=50&player_deck_archetype[]=Quest+Warrior"
-    },
-    {
-        "name": "Azshara Druid",
-        "archetype_url": "https://www.hsguru.com/archetype/Azshara%20Druid",
-        "decks_url": "https://www.hsguru.com/decks?min_games=50&player_deck_archetype[]=Azshara+Druid"
+        "decks_url": "https://www.hsguru.com/decks?min_games=50&player_deck_archetype[]=Harold+DH",
+        "total_games": 4388
     },
     {
         "name": "Harold Egglock",
         "archetype_url": "https://www.hsguru.com/archetype/Harold%20Egglock",
-        "decks_url": "https://www.hsguru.com/decks?min_games=50&player_deck_archetype[]=Harold+Egglock"
-    },
-    {
-        "name": "Harold DK",
-        "archetype_url": "https://www.hsguru.com/archetype/Harold%20DK",
-        "decks_url": "https://www.hsguru.com/decks?min_games=50&player_deck_archetype[]=Harold+DK"
+        "decks_url": "https://www.hsguru.com/decks?min_games=50&player_deck_archetype[]=Harold+Egglock",
+        "total_games": 6615
     },
     {
         "name": "Dragon Hunter",
         "archetype_url": "https://www.hsguru.com/archetype/Dragon%20Hunter",
-        "decks_url": "https://www.hsguru.com/decks?min_games=50&player_deck_archetype[]=Dragon+Hunter"
+        "decks_url": "https://www.hsguru.com/decks?min_games=50&player_deck_archetype[]=Dragon+Hunter",
+        "total_games": 1363
+    },
+    {
+        "name": "Quest Warrior",
+        "archetype_url": "https://www.hsguru.com/archetype/Quest%20Warrior",
+        "decks_url": "https://www.hsguru.com/decks?min_games=50&player_deck_archetype[]=Quest+Warrior",
+        "total_games": 19574
+    },
+    {
+        "name": "Azshara Druid",
+        "archetype_url": "https://www.hsguru.com/archetype/Azshara%20Druid",
+        "decks_url": "https://www.hsguru.com/decks?min_games=50&player_deck_archetype[]=Azshara+Druid",
+        "total_games": 7122
+    },
+    {
+        "name": "Harold Warrior",
+        "archetype_url": "https://www.hsguru.com/archetype/Harold%20Warrior",
+        "decks_url": "https://www.hsguru.com/decks?min_games=50&player_deck_archetype[]=Harold+Warrior",
+        "total_games": 2361
+    },
+    {
+        "name": "Harold DK",
+        "archetype_url": "https://www.hsguru.com/archetype/Harold%20DK",
+        "decks_url": "https://www.hsguru.com/decks?min_games=50&player_deck_archetype[]=Harold+DK",
+        "total_games": 46533
     },
     {
         "name": "Quest DH",
         "archetype_url": "https://www.hsguru.com/archetype/Quest%20DH",
-        "decks_url": "https://www.hsguru.com/decks?min_games=50&player_deck_archetype[]=Quest+DH"
+        "decks_url": "https://www.hsguru.com/decks?min_games=50&player_deck_archetype[]=Quest+DH",
+        "total_games": 2032
     },
     {
         "name": "Control Priest",
         "archetype_url": "https://www.hsguru.com/archetype/Control%20Priest",
-        "decks_url": "https://www.hsguru.com/decks?min_games=50&player_deck_archetype[]=Control+Priest"
+        "decks_url": "https://www.hsguru.com/decks?min_games=50&player_deck_archetype[]=Control+Priest",
+        "total_games": 154308
     },
     {
         "name": "Imbue Paladin",
         "archetype_url": "https://www.hsguru.com/archetype/Imbue%20Paladin",
-        "decks_url": "https://www.hsguru.com/decks?min_games=50&player_deck_archetype[]=Imbue+Paladin"
+        "decks_url": "https://www.hsguru.com/decks?min_games=50&player_deck_archetype[]=Imbue+Paladin",
+        "total_games": 4904
     },
     {
         "name": "Imbue Rogue",
         "archetype_url": "https://www.hsguru.com/archetype/Imbue%20Rogue",
-        "decks_url": "https://www.hsguru.com/decks?min_games=50&player_deck_archetype[]=Imbue+Rogue"
+        "decks_url": "https://www.hsguru.com/decks?min_games=50&player_deck_archetype[]=Imbue+Rogue",
+        "total_games": 1709
     },
     {
         "name": "Hostage Druid",
         "archetype_url": "https://www.hsguru.com/archetype/Hostage%20Druid",
-        "decks_url": "https://www.hsguru.com/decks?min_games=50&player_deck_archetype[]=Hostage+Druid"
+        "decks_url": "https://www.hsguru.com/decks?min_games=50&player_deck_archetype[]=Hostage+Druid",
+        "total_games": 15368
     },
     {
         "name": "Rafaamlock",
         "archetype_url": "https://www.hsguru.com/archetype/Rafaamlock",
-        "decks_url": "https://www.hsguru.com/decks?min_games=50&player_deck_archetype[]=Rafaamlock"
+        "decks_url": "https://www.hsguru.com/decks?min_games=50&player_deck_archetype[]=Rafaamlock",
+        "total_games": 12035
     },
     {
         "name": "Wallow Warlock",
         "archetype_url": "https://www.hsguru.com/archetype/Wallow%20Warlock",
-        "decks_url": "https://www.hsguru.com/decks?min_games=50&player_deck_archetype[]=Wallow+Warlock"
+        "decks_url": "https://www.hsguru.com/decks?min_games=50&player_deck_archetype[]=Wallow+Warlock",
+        "total_games": 2258
     },
     {
         "name": "Krona Druid",
         "archetype_url": "https://www.hsguru.com/archetype/Krona%20Druid",
-        "decks_url": "https://www.hsguru.com/decks?min_games=50&player_deck_archetype[]=Krona+Druid"
+        "decks_url": "https://www.hsguru.com/decks?min_games=50&player_deck_archetype[]=Krona+Druid",
+        "total_games": 6465
     },
     {
         "name": "Imbue Mage",
         "archetype_url": "https://www.hsguru.com/archetype/Imbue%20Mage",
-        "decks_url": "https://www.hsguru.com/decks?min_games=50&player_deck_archetype[]=Imbue+Mage"
+        "decks_url": "https://www.hsguru.com/decks?min_games=50&player_deck_archetype[]=Imbue+Mage",
+        "total_games": 1532
     }
 ]

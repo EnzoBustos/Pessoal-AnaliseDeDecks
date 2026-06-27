@@ -1,3 +1,13 @@
+"""Legacy compatibility entry point for deck scraping."""
+
+from utils.helpers import configure_utf8_console
+
+from scraping.scrape_decks import main
+
+
+if __name__ == "__main__":
+    configure_utf8_console()
+    main()
 import json
 import os
 import time
