@@ -1,9 +1,114 @@
-==========================================================================================
-RESUMO FINAL - MELHOR VARIANTE DE CADA ARQUÉTIPO
-==========================================================================================
+End of Turnadin
+AAECAZ8FBvD+BsODB8avB+XBB6vGB7roBwzJoAS6lgfXlwfOmwf1rwfiwQfowQfqwQf2wQeDwgfmxQfQ6gcAAA==
 
-Harold Rogue:
-  Melhor variante : Deck 1  (P(melhor) = 29.5%)
-  Confiança       : BAIXA - praticamente empate estatístico, não decida só por isso
-  Deck code       : AAECAaIHDpGfBKGBB5KDB4KYB9GdB+ylB4aoB4eoB4ioB9C/B/bJB4rUB5vUB4jZBwj3nwSQgwfBlwfHrge0wQfAwQedxQfVxQcAAA==
-  Gráfico salvo em: posteriors_Harold_Rogue.png
+Dude Paladin
+AAECAZ8FBsODB8avB+XBB/bBB4TEB+jFBwzJoASU9QW6lgfXlwfOmwf1rweDwgfkxQflxQfmxQfnxQfD4wcAAA==
+
+Dragon Warrior
+AAECAQcEi6AEkNQE4+YG94MHDar8Bqv8BuiHB9KXB7etB4+xB+yyB4S9B7XAB5XCB5vCB5zCB/nDBwAA
+
+Harold Shaman
+AAECAaoICq+fBMODB4KYB9umB9+mB+WmB9C/B4LUB5vUB+/jBwrmlgfgnQf1rAe8sQePvgfDwAfJwAf3wAf2wQfm/QcAAA==
+
+No Minion DH
+AAECAea5Awi0lweKqgeSqgeTqgeesQensQe/sQeUvwcL4fgF3v8G/oMHqocHtpcH550HobEHwLEH6LEHkr8Hlb8HAAA=
+
+Unholy DK
+AAECAfHhBALtnweIvwcOhfYE1J4G1+UGyIwHupUHopcHvJoH0JsH0q0HhrEH4rEHjr8H/78H9sEHAAA=
+
+Egg Warrior
+AAECAQcEw4MH9ZgHn5kH150HDYagBI7UBJzUBOPmBsyPB9OXB+CdB9WmB+qnB/yvB9CyB7DBB5zCBwAA
+
+No Hand Hunter
+AAECAR8G054GmacHmqcHm6cHxbEHhMQHDKmfBKqfBK+SB4WVB86bB+6fB5CnB5inB8u2B7TAB7nAB7vABwAA
+
+Burn Rogue
+AAECAaIHCOylB4aoB4eoB4ioB/KyB/bJB4jZB8PyBwuRnwT3nwTZogbBlwfmowftrAeMrQfZrwe0wQfVxQeqyQcAAA==
+
+Burn Mage
+AAECAf0EApegBIi+Bw79ngSF5gazhwfHhweflgfopQeLsQfWsgfWvAeGxAeSxAebxAesxgeT2gcAAA==
+
+Merithra Druid
+AAECAZICDKn1BqGBB5KDB8ODB6+HB6yIB4KYB7iyB8u2B4S9B+DAB+LABwmunwSIgweqrwesrwfosQe+sgfXwAfYwAeT8QcAAA==
+
+Harold Rogue
+AAECAaIHDqGBB5KDB8ODB4KYB9GdB+ylB4aoB4eoB4ioB9C/B/bJB4rUB5vUB4jZBwiRnwT3nwTBlwfHrge0wQfAwQedxQfVxQcAAA==
+
+Burn Warrior
+AAECAQcAD47UBJDUBJzUBOPmBseHB+iHB4WVB9WmB/yvB4+xB9CyB9ayB5XCB5vCB5zCBwAA
+
+Broxigar DH
+AAECAea5AwaongaKqgeSqgeTqgfLtgeUvwcM4fgF3v8G/oMHqocHtJcHtpcH550HobEHwLEH6LEHkr8Hlb8HAAA=
+
+Token Druid
+AAECAZICBMODB6+HB+DAB+zABw2unwSB1ASIgweuhweSlweUlwfXlwfanQe4nweqrwfXwAfbwAf2wQcAAA==
+
+Vanessa Rogue
+AAECAaIHBoaoB4eoB4ioB9mvB/bJB4jZBwyRnwT3nwTZogbM/gaQgwfBlwfOmweMrQfHrgfLtge0wQfVxQcAAA==
+
+Quest Mage
+AAECAf0ECO/8BsODB7OHB6ebB/mbB9WdB/KyB5PaBwub8gbxkQewmwf6mwfRpgfLtgf5wweGxAeSxAeG4AecgggAAA==
+
+Ace Hunter
+AAECAR8Gqp8EmacHmqcHm6cHxbEH8b8HDKmfBOL6Bq+SB4WVB+KWB86bB+6fB5inB/qyB7TAB7nAB7vABwAA
+
+Companion Hunter
+AAECAR8InaAEqYEHmacHmqcHm6cHxbEHucAH5MQHC6mfBOKJB6+SB+6fB8u2B7vAB97EB+DEB+PEB/nEB6H9BwAA
+
+Quest Hunter
+AAECAR8ImKAEzZ4GrIgHqJcHgagHyK4H1K8Hu8AHC6mfBOD4Ba+SB8yWB9yWB96WB9eXB/2bB/qwB4SxB8GyBwAA
+
+Egglock
+AAECAf0GBNGCB/WYB+ybB9edBw2PnwSxnwSRoATnoATTngbrhAepiAeEmQfgnQeTvgfXvgfYvgfgvgcAAA==
+
+Leyline Mage
+AAECAf0EBJegBLOHB/rEB6zGBw3opQfLtgeGxAeSxAfnxAfoxAfwxAfzxAf0xAf7xAeqyQeT2geG4AcAAA==
+
+Harold DH
+AAECAea5AwiKqgeSqgeTqgfnsQeUvwfQvwfUyQeb1AcL4fgF3v8G5/8G/oMHtJcHtpcH9aoHjb8Hkr8Hlb8H4L8HAAA=
+
+Harold Warrior
+AAECAQcIzZ4Gzp4GqfUGq/wGw4MHj74H0L8Hm9QHC+PmBqr8BseHB+iHB9KXB4+xB9CyB6/BB5zCB/nDB6DFBwAA
+
+Quest Warrior
+AAECAQcQn58EqfUGw4MH7o8HtpQH1JcHgpgHi5gHhJ0H6qcH2LIHlcIHucMHyccHm9QH/94HB47UBOiHB9WmB/yvB9CyB7DBB5zCBwAA
+
+Azshara Druid
+AAECAZICCqn1BqX8BqGBB6+HB6GJB4KYB/ioB/moB/qoB5PxBwqunwSIgweQlweqrwesrwe4sge+sgfXwAeYxAfZxAcAAA==
+
+Harold Egglock
+AAECAf0GBPWYB+ybB9edB5vUBw2PnwSxnwSRoATnoATrhAepiAeEmQfgnQfQsgeTvgfXvgfYvgfgvgcAAA==
+
+Harold DK
+AAECAfHhBArUngbV5QaSgwfDgwf0qgfisQfQvwf2wQfqyQeb1AcK2OUGgf0Gl4IHupUHkasHj74Hjr8HtcAHmsUH0MUHAAA=
+
+Dragon Hunter
+AAECAR8Gw4MHmacHmqcHm6cHmLAH978HDKmfBNOeBveDB6+SB+yyB523B4S9B/O/B/W/B4PAB7XAB/nDBwAA
+
+Quest DH
+AAECAea5AwiXoASzoASongbtmAfvmAeKqgeSqgeTqgcLtp8E4fgF054GrIcHtpcHtZgH550H4rEHjb4Hkr8Hlb8HAAA=
+
+Control Priest
+AAECAa0GEISfBPCfBKn1Bpb9BsP/BveBB5KDB8ODB6iWB4KYB/ypB4CqB4SqB+SyB/KyB5b8BweFhgfkngeLrQedrQesrQfLtgeyxQcAAA==
+
+Imbue Paladin
+AAECAZ8FBPD+BrSBB8ODB/KDBw2cnwTunwTJoATW+gah+wbP/gbv/gbI/wb3gQfAhwfCjwfDjwe2lAcAAA==
+
+Imbue Rogue
+AAECAaIHBOylB/KyB/bJB4jZBw2RnwT3nwTZogac+wb3gQfiiQfBlwfmoweaswe6swe0wQfAwQeqyQcAAA==
+
+Hostage Druid
+AAECAZICCqn1BqGBB5KDB8ODB6+HB+GIB4KYB/WYB5mxB+XEBwqunwSIgweqrwesrwfosQe4sge+sgfXwAfZxAeT8QcAAA==
+
+Rafaamlock
+AAECAf0GDoOgBKn1BsODB4KYB4ilB4mlB4qlB5GlB5OlB5SlB5WlB5alB5elB5qlBw2PnwSCoATnoATZggfiiQe2lAeEmQfenQfhnQeqrQfQsgeNvgfXvgcAAA==
+
+Wallow Warlock
+AAECAf0GCuegBM2eBtGCB9mCB+SCB8ODB4OKB6WtB9CyB9e+BwqPnwTe6wXTngae+Qa1+gaOgwfDhweEmQfqmwecgggAAA==
+
+Krona Druid
+AAECAZICEqn1BqX8BqGBB8ODB6+HB6yIB6GJB5CXB4KYB9meB/ioB/moB/qoB7qvB+DAB4/CB+XEB5PxBwaunwSIgweQqweqrwe+sgfXwAcAAA==
+
+Imbue Mage
+AAECAf0EDM2eBs6eBqT4Bpz7BsODB7KHB4OKB+ilB4uxB4i+B9fDB4bEBwnW+gbc+gb0/Ab3gQezhwfujQeSxAesxgeT2gcAAA==
+

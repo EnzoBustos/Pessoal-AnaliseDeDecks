@@ -1,4 +1,7 @@
 import json
+import sys
+
+sys.stdout.reconfigure(encoding='utf-8')
 
 INPUT_FILE = "decks.json"
 OUTPUT_FILE = "analysis-ready.json"
