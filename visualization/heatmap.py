@@ -8,6 +8,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 from config import FIG_DPI, HEATMAP_CMAP, HEATMAP_FIGSIZE_MIN_HEIGHT, HEATMAP_FIGSIZE_ROW_HEIGHT, HEATMAP_FIGSIZE_WIDTH
+from utils.plotting import apply_vibrant_theme
 
 
 def plot_heatmap(archetype_ranking: pd.DataFrame, output_dir: Path) -> Path:
@@ -15,6 +16,7 @@ def plot_heatmap(archetype_ranking: pd.DataFrame, output_dir: Path) -> Path:
 
     output_dir.mkdir(parents=True, exist_ok=True)
     path = output_dir / "heatmap_archetypes.png"
+    apply_vibrant_theme()
 
     columns = [
         "archetype_reliability_score",
@@ -31,7 +33,7 @@ def plot_heatmap(archetype_ranking: pd.DataFrame, output_dir: Path) -> Path:
 
     plt.figure(figsize=(HEATMAP_FIGSIZE_WIDTH, max(HEATMAP_FIGSIZE_MIN_HEIGHT, HEATMAP_FIGSIZE_ROW_HEIGHT * len(frame))))
     plt.imshow(matrix, aspect="auto", cmap=HEATMAP_CMAP)
-    plt.colorbar(label="Normalized value")
+    plt.colorbar(label="Normalized value", shrink=0.8)
     plt.yticks(range(len(frame)), frame["archetype"].tolist())
     plt.xticks(range(len(columns)), columns, rotation=35, ha="right")
     plt.title("Heatmap de estatísticas por arquétipo")

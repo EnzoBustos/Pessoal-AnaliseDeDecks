@@ -9,6 +9,7 @@ from pathlib import Path
 
 from bs4 import BeautifulSoup
 from playwright.sync_api import sync_playwright
+from tqdm import tqdm
 
 from config import HEADLESS_BROWSER, NETWORK_IDLE_WAIT_UNTIL, SCROLL_STABLE_ROUNDS, SCROLL_WAIT_SECONDS
 from scraping.scrape_deckcodes import extract_deckcode
@@ -109,7 +110,7 @@ def scrape_decks(input_path: Path = INPUT_FILE, output_path: Path = OUTPUT_FILE)
         browser = playwright.chromium.launch(headless=HEADLESS_BROWSER)
         page = browser.new_page()
 
-        for archetype in archetypes:
+        for archetype in tqdm(archetypes, desc="Arquétipos", unit="arquétipo"):
             archetype_name = str(archetype["name"])
             seen.setdefault(archetype_name, set())
 
@@ -119,6 +120,7 @@ def scrape_decks(input_path: Path = INPUT_FILE, output_path: Path = OUTPUT_FILE)
             last_height = 0
             stable_rounds = 0
 
+            scroll_bar = tqdm(desc=f"{archetype_name}", unit="scroll", leave=False)
             while True:
                 page.evaluate("window.scrollTo(0, document.body.scrollHeight)")
                 time.sleep(SCROLL_WAIT_SECONDS)
@@ -141,9 +143,11 @@ def scrape_decks(input_path: Path = INPUT_FILE, output_path: Path = OUTPUT_FILE)
 
                 last_height = current_height
                 if stable_rounds >= SCROLL_STABLE_ROUNDS:
+                    scroll_bar.close()
                     break
 
                 LOGGER.info("%s | +%s novos decks | total=%s", archetype_name, new_count, len(seen[archetype_name]))
+                scroll_bar.update(1)
 
         browser.close()
 

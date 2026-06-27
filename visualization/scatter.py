@@ -7,7 +7,8 @@ from pathlib import Path
 import matplotlib.pyplot as plt
 import pandas as pd
 
-from config import FIG_DPI, PLOT_SCATTER_COLOR, SCATTER_COLORBAR_LABEL, SCATTER_CMAP, SCATTER_FIGSIZE
+from config import FIG_DPI, SCATTER_COLORBAR_LABEL, SCATTER_CMAP, SCATTER_FIGSIZE
+from utils.plotting import apply_vibrant_theme
 
 
 def plot_scatter(deck_frame: pd.DataFrame, output_dir: Path) -> Path:
@@ -15,6 +16,7 @@ def plot_scatter(deck_frame: pd.DataFrame, output_dir: Path) -> Path:
 
     output_dir.mkdir(parents=True, exist_ok=True)
     path = output_dir / "scatter_reliability.png"
+    apply_vibrant_theme()
 
     plt.figure(figsize=SCATTER_FIGSIZE)
     scatter = plt.scatter(
@@ -29,7 +31,7 @@ def plot_scatter(deck_frame: pd.DataFrame, output_dir: Path) -> Path:
     plt.colorbar(scatter, label=SCATTER_COLORBAR_LABEL)
     plt.xlabel("Jogos")
     plt.ylabel("Winrate observado")
-    plt.title("Jogos x Winrate observado")
+    plt.title("Jogos x Winrate observado", fontsize=15)
     plt.tight_layout()
     plt.savefig(path, dpi=FIG_DPI)
     plt.close()

@@ -7,6 +7,8 @@ import re
 from pathlib import Path
 from urllib.parse import quote_plus
 
+from tqdm import tqdm
+
 from config import ARCHETYPE_META_PATH, BASE_URL, MIN_GAMES
 from scraping.scraper_utils import download_page, parse_table, resolve_url, save_json_file
 from utils.helpers import configure_utf8_console
@@ -24,7 +26,8 @@ def scrape_archetypes(output_path: Path | None = None) -> list[dict[str, object]
     soup = parse_table(html)
 
     archetypes: list[dict[str, object]] = []
-    for row in soup.select("td.decklist-info"):
+    rows = soup.select("td.decklist-info")
+    for row in tqdm(rows, desc="Arquétipos", unit="arquétipo"):
         link = row.select_one("a.deck-title")
         if link is None:
             continue

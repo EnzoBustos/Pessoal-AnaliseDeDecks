@@ -7,7 +7,8 @@ from pathlib import Path
 import matplotlib.pyplot as plt
 import pandas as pd
 
-from config import FIG_DPI, PLOT_ACCENT_COLOR, PROBABILITY_FIGSIZE
+from config import FIG_DPI, PROBABILITY_FIGSIZE, VIBRANT_CMAP
+from utils.plotting import apply_vibrant_theme, vibrant_colors
 
 
 def plot_probability_best(deck_frame: pd.DataFrame, output_dir: Path, top_n: int) -> Path:
@@ -16,10 +17,12 @@ def plot_probability_best(deck_frame: pd.DataFrame, output_dir: Path, top_n: int
     output_dir.mkdir(parents=True, exist_ok=True)
     path = output_dir / "probability_best.png"
     frame = deck_frame.sort_values("prob_best", ascending=False).head(top_n)
+    apply_vibrant_theme()
 
     plt.figure(figsize=PROBABILITY_FIGSIZE)
     labels = [f"{row.archetype} #{int(row.deck_rank_in_archetype)}" for row in frame.itertuples()]
-    plt.bar(labels, frame["prob_best"], color=PLOT_ACCENT_COLOR)
+    colors = vibrant_colors(frame["prob_best"].to_numpy(dtype=float), cmap_name=VIBRANT_CMAP)
+    plt.bar(labels, frame["prob_best"], color=colors, edgecolor="#0f172a", linewidth=0.8)
     plt.ylabel("Probability of Best")
     plt.xticks(rotation=35, ha="right")
     plt.title("Probabilidade de cada deck ser o melhor do arquétipo")

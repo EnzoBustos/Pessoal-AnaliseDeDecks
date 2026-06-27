@@ -9,7 +9,8 @@ import numpy as np
 import pandas as pd
 from scipy import stats
 
-from config import FIG_DPI, POSTERIOR_FIGSIZE, SHRINKAGE_FIGSIZE, PLOT_SECONDARY_COLOR
+from config import FIG_DPI, POSTERIOR_FIGSIZE, SHRINKAGE_FIGSIZE, PLOT_SECONDARY_COLOR, SECONDARY_VIBRANT_CMAP, VIBRANT_CMAP
+from utils.plotting import apply_vibrant_theme, vibrant_colors
 
 
 def plot_posterior_curves(deck_frame: pd.DataFrame, output_dir: Path, top_n: int) -> Path:
@@ -18,13 +19,16 @@ def plot_posterior_curves(deck_frame: pd.DataFrame, output_dir: Path, top_n: int
     output_dir.mkdir(parents=True, exist_ok=True)
     path = output_dir / "posterior_curves.png"
     frame = deck_frame.sort_values("reliability_score", ascending=False).head(top_n)
+    apply_vibrant_theme()
 
     x = np.linspace(0, 1, 1000)
     plt.figure(figsize=POSTERIOR_FIGSIZE)
+    line_colors = vibrant_colors(frame["reliability_score"].to_numpy(dtype=float), cmap_name=SECONDARY_VIBRANT_CMAP)
     for _, row in frame.iterrows():
         pdf = stats.beta.pdf(x, row["posterior_alpha"], row["posterior_beta"])
         label = f"{row['archetype']} #{int(row['deck_rank_in_archetype'])}"
-        plt.plot(x, pdf, label=label)
+        color = line_colors[len(plt.gca().lines)] if len(line_colors) else None
+        plt.plot(x, pdf, label=label, linewidth=2.0, alpha=0.95, color=color)
 
     plt.xlabel("Winrate")
     plt.ylabel("Density")
@@ -41,6 +45,7 @@ def plot_shrinkage(deck_frame: pd.DataFrame, output_dir: Path) -> Path:
 
     output_dir.mkdir(parents=True, exist_ok=True)
     path = output_dir / "shrinkage.png"
+    apply_vibrant_theme()
 
     sorted_frame = deck_frame.sort_values("jogos", ascending=False)
     x = np.arange(len(sorted_frame))

@@ -6,6 +6,7 @@ from os.path import relpath
 from pathlib import Path
 
 import pandas as pd
+from tqdm import tqdm
 
 from analysis.loader import prepare_dataset
 from analysis.bayesian import (
@@ -48,27 +49,52 @@ def run_analysis(config: AnalysisConfig | None = None) -> dict[str, Path]:
     ensure_project_directories()
     logger = get_logger("hearthstone-analysis", config.paths.output_dir / "analysis.log")
 
+    stages = [
+        "Carregar dados",
+        "Estimar prior",
+        "Calcular métricas bayesianas",
+        "Executar Monte Carlo",
+        "Calcular estatísticas",
+        "Gerar gráficos",
+        "Exportar CSVs",
+        "Gerar relatório",
+        "Escrever resumo final",
+    ]
+
+    stage_bar = tqdm(stages, desc="Pipeline", unit="etapa")
+
+    stage_bar.set_postfix_str("carregando dados")
     logger.info("Carregando dados de entrada")
     deck_frame = prepare_dataset()
+    stage_bar.update(1)
 
+    stage_bar.set_postfix_str("estimando prior")
     logger.info("Estimando prior Empirical Bayes")
     prior = estimate_beta_prior(deck_frame)
     logger.info("Prior estimado: alpha=%.4f | beta=%.4f | metodo=%s", prior.alpha, prior.beta, prior.method)
+    stage_bar.update(1)
 
+    stage_bar.set_postfix_str("calculando métricas")
     logger.info("Calculando métricas posteriores por deck")
     deck_frame = enrich_with_posterior_metrics(deck_frame, prior.alpha, prior.beta, config.thresholds)
     deck_frame = add_group_threshold_probabilities(deck_frame)
+    stage_bar.update(1)
 
+    stage_bar.set_postfix_str("rodando Monte Carlo")
     logger.info("Executando Monte Carlo com %d amostras", config.mc_samples)
     deck_frame = probability_of_best(deck_frame, config.mc_samples, config.seed)
     deck_frame = compute_reliability_score(deck_frame, config.games_k)
+    stage_bar.update(1)
 
+    stage_bar.set_postfix_str("calculando estatísticas")
     logger.info("Calculando estatísticas por arquétipo")
     archetype_stats = compute_archetype_statistics(deck_frame)
     archetype_ranking = build_archetype_ranking(deck_frame, archetype_stats)
     deck_ranking = build_deck_ranking(deck_frame)
     archetype_top_decks = build_archetype_top_decks(deck_ranking, top_n=3)
+    stage_bar.update(1)
 
+    stage_bar.set_postfix_str("gerando gráficos")
     logger.info("Gerando gráficos")
     graph_paths: dict[str, str] = {}
     figure_paths = {
@@ -85,7 +111,9 @@ def run_analysis(config: AnalysisConfig | None = None) -> dict[str, Path]:
     }
     for path in plot_archetype_rankings(deck_ranking, config.paths.output_figures_dir / "archetypes", top_n=config.archetype_rank_plot_size):
         graph_paths[f"archetype_{path.stem}"] = Path(relpath(path, start=config.paths.output_reports_dir)).as_posix()
+    stage_bar.update(1)
 
+    stage_bar.set_postfix_str("exportando CSVs")
     logger.info("Exportando CSVs")
     save_dataframe_csv(deck_frame, config.paths.output_csv_dir / ANALYSIS_CSV_NAME)
     save_dataframe_csv(deck_ranking, config.paths.output_csv_dir / DECK_STATS_CSV_NAME)
@@ -95,7 +123,9 @@ def run_analysis(config: AnalysisConfig | None = None) -> dict[str, Path]:
         pd.concat([deck_ranking.assign(kind="deck"), archetype_ranking.assign(kind="archetype")], ignore_index=True, sort=False),
         config.paths.output_csv_dir / RANKING_CSV_NAME,
     )
+    stage_bar.update(1)
 
+    stage_bar.set_postfix_str("gerando relatório")
     logger.info("Gerando relatório HTML")
     report_path = generate_html_report(
         config.paths.output_reports_dir / REPORT_FILE_NAME,
@@ -108,14 +138,16 @@ def run_analysis(config: AnalysisConfig | None = None) -> dict[str, Path]:
         prior.alpha,
         prior.beta,
     )
+    stage_bar.update(1)
 
+    stage_bar.set_postfix_str("escrevendo resumo")
     summary_lines = ["Resumo final por arquétipo", ""]
     for archetype, group in deck_ranking.groupby("archetype", sort=False):
         top = group.sort_values(["reliability_score", "posterior_mean", "jogos"], ascending=[False, False, False]).head(config.archetype_summary_top_n)
         summary_lines.append(archetype)
         for row in top.itertuples():
             summary_lines.append(
-                f"#{int(row.deck_rank_in_archetype)} | score={row.reliability_score:.3f} | wr={row.winrate_observed:.3f} | "
+                f"#{int(row.deck_rank_in_archetype)} | deck={row.deck_code} | score={row.reliability_score:.3f} | wr={row.winrate_observed:.3f} | "
                 f"jogos={int(row.jogos)} | post={row.posterior_mean:.3f} | IC95%=[{row.credible_95_low:.3f}, {row.credible_95_high:.3f}] | "
                 f"P(best deck)={row.prob_best*100:.1f}%"
             )
@@ -124,7 +156,8 @@ def run_analysis(config: AnalysisConfig | None = None) -> dict[str, Path]:
     summary_path = config.paths.output_reports_dir / SUMMARY_FILE_NAME
     summary_text = "\n".join(summary_lines)
     summary_path.write_text(summary_text, encoding="utf-8")
-    Path("resumo_final.txt").write_text(summary_text, encoding="utf-8")
+    stage_bar.update(1)
+    stage_bar.close()
 
     logger.info("Análise concluída com sucesso")
     logger.info("Melhor arquétipo: %s", archetype_ranking.iloc[0]["archetype"])
