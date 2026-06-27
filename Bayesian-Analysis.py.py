@@ -64,71 +64,16 @@ np.random.seed(42)  # reprodutibilidade da simulação Monte Carlo
 # derrotas, troque por esses valores diretamente.
 
 arquetipos = {
-    "End of Turnadin": [
-        {"deck_code": "AAECAZ8FBPD+BsODB8avB+XBBw3JoAS6lgfXlwfOmwf1rwfiwQfqwQf2wQeDwgfmxQerxge66AfQ6gcAAA==", "winrate": 0.626, "jogos": 3408},
-        {"deck_code": "AAECAZ8FBvD+BsODB8avB+XBB6vGB7roBwzJoATTnga6lgfOmwf1rwfiwQfowQfqwQf2wQeDwgfmxQfQ6gcAAA==", "winrate": 0.621, "jogos": 27611},
-        {"deck_code": "AAECAZ8FCPD+BsODB+6oB++oB/CoB/WvB+XBB6vGBwvJoAS6lgfLqQfErge+sgfiwQfowQfqwQf2wQeDwgfmxQcAAA==", "winrate": 0.610, "jogos": 2715},
-        {"deck_code": "AAECAZ8FBvD+BsODB+6oB++oB/CoB+XBBwzJoATTnga6lgfErgf1rwe+sgfiwQfowQfqwQf2wQeDwgfmxQcAAA==", "winrate": 0.601, "jogos": 809},
-        {"deck_code": "AAECAZ8FCs6eBvD+BsODB+6oB++oB/CoB/WvB42+B+XBB6vGBwrJoAS6lgfLqQfErge+sgfiwQfowQfqwQf2wQeDwgcAAA==", "winrate": 0.597, "jogos": 1186},
-        {"deck_code": "AAECAZ8FBvD+BsODB+6oB++oB/CoB+XBBwzJoAS6lgfLqQfErgf1rwe+sgfiwQfowQfqwQf2wQeDwgerxgcAAA==", "winrate": 0.580, "jogos": 4398},
-    ],
-    "No Hand Hunter": [
-        {"deck_code": "AAECAR8EmacHmqcHm6cHxbEHDamfBKqfBNOeBq+SB4WVB86bB+6fB5CnB5inB8u2B7TAB7nAB7vABwAA", "winrate": 0.565, "jogos": 6780},
-        {"deck_code": "AAECAR8EmacHmqcHm6cHxbEHDamfBKqfBKj9Bq+SB4WVB86bB+6fB5CnB5inB8u2B7TAB7nAB7vABwAA", "winrate": 0.543, "jogos": 11572},
-        {"deck_code": "AAECAR8EmacHmqcHm6cHxbEHDamfBKqfBK+SB4WVB9eXB86bB+6fB5CnB5inB7TAB7nAB7vAB97EBwAA", "winrate": 0.532, "jogos": 3306},
-    ],
-    "Token Druid": [
-        {"deck_code": "AAECAZICBMODB6+HB7ifB+DABw2unwSB1ASIgweuhweSlweUlwfXlwfanQeqrwfXwAfbwAfswAf2wQcAAA==", "winrate": 0.558, "jogos": 1727},
-        {"deck_code": "AAECAZICCJKDB8ODB6+HB4KYB+DAB93EB+XEB/bJBwuunwSB1ASIgweuhweSlweUlwfXlweqrwe+sgfXwAf2wQcAAA==", "winrate": 0.542, "jogos": 1551},
-    ],
-    "Quest Mage": [
-        {"deck_code": "AAECAf0EBu/8BsODB7OHB6ebB/KyB5PaBwyb8gbxkQewmwf6mwfVnQfRpgfLtgf5wweGxAeSxAeG4AecgggAAA==", "winrate": 0.538, "jogos": 5066},
-        {"deck_code": "AAECAf0EBu/8BsODB6ebB/mbB/KyB5PaBwyb8gbxkQewmwf6mwfVnQfRpgfLtgf5wweGxAeSxAeG4AecgggAAA==", "winrate": 0.534, "jogos": 8711},
-        {"deck_code": "AAECAf0EBu/8BsODB7OHB6ebB/WlB/KyBwyb8gbxkQewmwf6mwfVnQfRpgfLtgf5wweGxAeSxAeG4AecgggAAA==", "winrate": 0.530, "jogos": 2752},
-        {"deck_code": "AAECAf0EBu/8BsODB6ebB/WlB+yqB/KyBwyb8ga1+gbxkQewmwf6mwfRpgfLtgf5wweGxAeSxAeG4AecgggAAA==", "winrate": 0.492, "jogos": 1676},
-    ],
-    "Leyline Mage": [
-        {"deck_code": "AAECAf0EBJegBIi+B/rEB//fBw2zhwfopQeLsQfWvAeSxAfnxAfoxAfwxAfzxAf0xAf7xAesxgeT2gcAAA==", "winrate": 0.534, "jogos": 8702},
-        {"deck_code": "AAECAf0EBJegBMODB/rEB6rJBw2zhwf1pQfWsgeGxAeSxAfnxAfoxAfwxAfzxAf0xAf7xAesxgeT2gcAAA==", "winrate": 0.532, "jogos": 10012},
-    ],
-    "Companion Hunter": [
-        {"deck_code": "AAECAR8InaAEqYEHmacHmqcHm6cHxbEHg8AH5MQHC6mfBOKJB6+SB+6fB8u2B7vAB97EB+DEB+PEB/nEB6H9BwAA", "winrate": 0.535, "jogos": 4755},
-        {"deck_code": "AAECAR8KnaAEzZ4GqYEHmacHmqcHm6cHxbEHg8AH5MQHof0HCqmfBOKJB6+SB+6fB8u2B7vAB97EB+DEB+PEB/nEBwAA", "winrate": 0.531, "jogos": 4822},
-        {"deck_code": "AAECAR8KnaAEzp4GqYEHmacHmqcHm6cHxbEHg8AH5MQHof0HCqmfBOKJB6+SB+6fB8u2B7vAB97EB+DEB+PEB/nEBwAA", "winrate": 0.526, "jogos": 3333},
-        {"deck_code": "AAECAR8KnaAEqYEHw4MHmacHmqcHm6cHxbEHg8AH5MQHof0HCqmfBOKJB6+SB+6fB8u2B7vAB97EB+DEB+PEB/nEBwAA", "winrate": 0.523, "jogos": 5213},
-    ],
-    "Dude Paladin": [
-        {"deck_code": "AAECAZ8FCPD+BsODB9eXB42dB8avB+XBB4TEB+jFBwvJoASU9QW6lgfOmwf1rwf2wQeDwgfkxQfmxQfnxQfD4wcAAA==", "winrate": 0.625, "jogos": 5273},
-        {"deck_code": "AAECAZ8FBMODB8avB+XBB+jFBw3JoASU9QW6lgfXlwfOmweNnQf1rwf2wQeDwgfkxQfmxQfnxQfD4wcAAA==", "winrate": 0.622, "jogos": 2430},
-        {"deck_code": "AAECAZ8FBsODB42dB8avB+XBB4TEB+jFBwzJoASU9QW6lgfXlwfOmwf1rwf2wQeDwgfkxQfmxQfnxQfD4wcAAA==", "winrate": 0.611, "jogos": 31621},
-    ],
-    "Dragon Warrior": [
-        {"deck_code": "AAECAQcCi6AE0LIHDuPmBqr8Bqv8BveDB+iHB9KXB7etB4+xB+yyB4S9B7XAB5XCB5vCB5zCBwAA", "winrate": 0.606, "jogos": 4044},
-        {"deck_code": "AAECAQcCi6AE0LIHDuPmBqr8Bqv8BuiHB9KXB7etB4+xB+yyB4S9B7XAB5XCB5vCB5zCB/nDBwAA", "winrate": 0.592, "jogos": 22623},
-        {"deck_code": "AAECAQcEi6AEyZ4G94MHj7EHDePmBqr8Bqv8BuiHB9KXB7etB+yyB4S9B7XAB5XCB5vCB5zCB/nDBwAA", "winrate": 0.587, "jogos": 4004},
-        {"deck_code": "AAECAQcAD+PmBqr8Bqv8BveDB8eHB+iHB9KXB7etB9CyB+yyB4S9B7XAB5XCB5vCB5zCBwAA", "winrate": 0.583, "jogos": 5878},
-    ],
-    "Harold Shaman": [
-        {"deck_code": "AAECAaoICq+fBP2fBMODB4KYB9umB9+mB+WmB9C/B4LUB5vUBwrmlgf1rAexsAe8sQePvgfDwAfJwAf3wAf2wQfm/QcAAA==", "winrate": 0.589, "jogos": 13212},
-        {"deck_code": "AAECAaoICK+fBMODB9umB9+mB+WmB9C/B4LUB5vUBwv9nwTmlgf1rAexsAe8sQePvgfDwAfJwAf3wAf2wQfm/QcAAA==", "winrate": 0.575, "jogos": 11643},
-        {"deck_code": "AAECAaoICq+fBMODB4KYB9umB9+mB+WmB7GwB9C/B4LUB5vUBwr9nwTmlgf1rAe8sQePvgfDwAfJwAf3wAf2wQfm/QcAAA==", "winrate": 0.562, "jogos": 5864},
-    ],
-    "No Minion DH": [
-        {"deck_code": "AAECAea5Awa0lweKqgeSqgeTqgensQeUvwcM4fgF3v8G/oMHqocHtpcH550HnrEHobEHwLEH6LEHkr8Hlb8HAAA=", "winrate": 0.563, "jogos": 1180},
-        {"deck_code": "AAECAea5Awa0lweKqgeSqgeTqgensQeUvwcM4fgF3v8G/oMHqocHtpcH550HnrEHobEHv7EHwLEHkr8Hlb8HAAA=", "winrate": 0.562, "jogos": 859},
-    ],
-    "Burn Mage": [
-        {"deck_code": "AAECAf0EBJegBIi+B9fDB5HGBw39ngSF5gbHhweflgfopQeLsQfWsgfWvAeGxAeSxAebxAesxgeT2gcAAA==", "winrate": 0.573, "jogos": 2823},
-        {"deck_code": "AAECAf0EBpegBLOHB4i+B9fDB5HGB5PaBwz9ngSF5gbHhweflgfopQeLsQfWsgfWvAeGxAeSxAebxAesxgcAAA==", "winrate": 0.570, "jogos": 6432},
-        {"deck_code": "AAECAf0EBJegBMODB7OHB4i+Bw39ngSF5gayhwfHhweflgfOmwfopQeLsQeSxAebxAesxgeqyQeT2gcAAA==", "winrate": 0.553, "jogos": 3480},
-        {"deck_code": "AAECAf0EApegBIi+Bw6yhwezhwfHhweflgfopQeLsQfWsgfWvAeGxAeSxAebxAesxgeqyQeT2gcAAA==", "winrate": 0.553, "jogos": 1970},
-        {"deck_code": "AAECAf0EAv2eBIi+Bw6yhwezhwfHhweflgfopQeLsQfWsgfWvAeGxAeSxAebxAesxgeqyQeT2gcAAA==", "winrate": 0.501, "jogos": 1719},
-    ],
     "Harold Rogue": [
-        {"deck_code": "AAECAaIHCqGBB5KDB8ODB4KYB+ylB9C/B/bJB4rUB5vUB4jZBwqRnwT3nwTTngaQgwfBlwfHrge0wQfAwQedxQfVxQcAAA==", "winrate": 0.563, "jogos": 44508},
-        {"deck_code": "AAECAaIHCqGBB5KDB4KYB9GdB+ylB9C/B/bJB4rUB5vUB4jZBwqRnwT3nwTTngaQgwfBlwfHrge0wQfAwQedxQfVxQcAAA==", "winrate": 0.555, "jogos": 57662},
-        {"deck_code": "AAECAaIHCtmiBqGBB5KDB4KYB+ylB9C/B/bJB4rUB5vUB4jZBwqRnwT3nwTTngaQgwfBlwfHrge0wQfAwQedxQfVxQcAAA==", "winrate": 0.552, "jogos": 25005},
-        {"deck_code": "AAECAaIHDNOeBqGBB5KDB8ODB4KYB9GdB+ylB9C/B/bJB4rUB5vUB4jZBwmRnwT3nwSQgwfBlwfHrge0wQfAwQedxQfVxQcAAA==", "winrate": 0.546, "jogos": 20456},
+        {"deck_code": "AAECAaIHDpGfBKGBB5KDB4KYB9GdB+ylB4aoB4eoB4ioB9C/B/bJB4rUB5vUB4jZBwj3nwSQgwfBlwfHrge0wQfAwQedxQfVxQcAAA==", "winrate": 0.569, "jogos": 1074},
+        {"deck_code": "AAECAaIHCqGBB5KDB4KYB+ylB9C/B/bJB4rUB5vUB4jZB8PyBwqRnwT3nwTTngaQgwfBlwfHrge0wQfAwQedxQfVxQcAAA==", "winrate": 0.568, "jogos": 7454},
+        {"deck_code": "AAECAaIHCsODB9GdB+ylB4aoB4eoB4ioB9C/B4rUB5vUB4jZBwr3nwT3gQeQgweMrQfHrgfZrweaswe0wQedxQfVxQcAAA==", "winrate": 0.567, "jogos": 1322},
+        {"deck_code": "AAECAaIHCqGBB5KDB8ODB4KYB+ylB9C/B/bJB4rUB5vUB4jZBwqRnwT3nwSQgwfBlwfHrge0wQfAwQedxQfVxQfD8gcAAA==", "winrate": 0.566, "jogos": 1734},
+        {"deck_code": "AAECAaIHCqGBB4KYB+ylB4++B9C/B/bJB4rUB5vUB4jZB8PyBwqRnwT3nwTTngaQgwfBlwfHrge0wQfAwQedxQfVxQcAAA==", "winrate": 0.565, "jogos": 2165},
+        {"deck_code": "AAECAaIHCqGBB5KDB8ODB4KYB+ylB9C/B/bJB4rUB5vUB4jZBwqRnwT3nwTTngaQgwfBlwfHrge0wQfAwQedxQfVxQcAAA==", "winrate": 0.565, "jogos": 33190},
+        {"deck_code": "AAECAaIHDqGBB5KDB8GXB4KYB9GdB+ylB4aoB4eoB4ioB9C/B/bJB4rUB5vUB4jZBwiRnwT3nwSQgwfHrge0wQfAwQedxQfVxQcAAA==", "winrate": 0.563, "jogos": 6164},
+        {"deck_code": "AAECAaIHDKGBB5KDB4KYB+ylB4aoB4eoB4ioB9C/B/bJB4rUB5vUB4jZBwmRnwT3nwSQgwfBlwfHrge0wQfAwQedxQfVxQcAAA==", "winrate": 0.563, "jogos": 10150},
+        {"deck_code": "AAECAaIHCtmiBqGBB5KDB4KYB+ylB9C/B/bJB4rUB5vUB4jZBwqRnwT3nwTTngaQgwfBlwfHrge0wQfAwQedxQfVxQcAAA==", "winrate": 0.563, "jogos": 20724},
     ],
 }
 
@@ -139,30 +84,30 @@ arquetipos = {
 # 100% é igualmente plausível". Prior fraco/não-informativo, aplicado
 # igualmente a TODOS os arquétipos (cada um roda sua própria posterior a
 # partir dele - não há mistura de dados entre arquétipos).
- 
+
 alpha0, beta0 = 1, 1
- 
+
 # N_SIM = quantos números aleatórios sorteamos de CADA posterior pra estimar
 # probabilidades por simulação Monte Carlo (não existe fórmula fechada
 # simples pra comparar 3+ Betas de uma vez). Erro dessa aproximação ≈
 # sqrt(p(1-p)/N_SIM); com 200_000 o erro máximo é ~0.11 p.p. (preciso o
 # suficiente, sem deixar o script lento).
-N_SIM = 1_000_000
- 
- 
+N_SIM = 200_000
+
+
 def nome_arquivo_seguro(nome):
     """Converte o nome do arquétipo num nome de arquivo válido (sem espaços/acentos problemáticos)."""
     return re.sub(r"[^\w\-]+", "_", nome.strip())
- 
- 
+
+
 def analisar_arquetipo(nome_arquetipo, variantes_lista):
     """Roda a análise bayesiana completa para UM arquétipo e retorna um resumo."""
- 
+
     variantes = {f"Deck {i}": dict(d) for i, d in enumerate(variantes_lista, start=1)}
     for nome, d in variantes.items():
         d["vitorias"] = round(d["winrate"] * d["jogos"])
         d["derrotas"] = d["jogos"] - d["vitorias"]
- 
+
     # --- posterior + amostragem Monte Carlo ---
     posteriors = {}
     amostras = {}
@@ -171,22 +116,22 @@ def analisar_arquetipo(nome_arquetipo, variantes_lista):
         b_post = beta0 + d["derrotas"]
         posteriors[nome] = (a_post, b_post)
         amostras[nome] = np.random.beta(a_post, b_post, size=N_SIM)
- 
+
     nomes = list(variantes.keys())
     matriz_amostras = np.vstack([amostras[n] for n in nomes])
     indice_melhor = np.argmax(matriz_amostras, axis=0)
     melhor_em_cada_sim = np.max(matriz_amostras, axis=0)
- 
+
     print("\n" + "#" * 90)
     print(f"ARQUÉTIPO: {nome_arquetipo}")
     print("#" * 90)
- 
+
     # --- legenda de deck codes ---
     print("\nLEGENDA DE DECKS")
     print("-" * 90)
     for nome, d in variantes.items():
         print(f"{nome}:\n  {d['deck_code']}\n")
- 
+
     # --- resumo por variante ---
     print("RESUMO POR VARIANTE")
     print("-" * 90)
@@ -198,7 +143,7 @@ def analisar_arquetipo(nome_arquetipo, variantes_lista):
               f"{variantes[nome]['winrate']*100:13.1f}% "
               f"{media_post*100:16.1f}% "
               f"[{ic_low*100:5.1f}%, {ic_high*100:5.1f}%]")
- 
+
     # --- P(é a melhor) ---
     print("\nP(variante é a MELHOR do arquétipo | dados)")
     print("-" * 90)
@@ -207,14 +152,36 @@ def analisar_arquetipo(nome_arquetipo, variantes_lista):
         prob_melhor = np.mean(indice_melhor == i)
         probs_melhor[nome] = prob_melhor
         print(f"  {nome:10s}: {prob_melhor*100:5.1f}%")
- 
+
+    # --- grupo estatisticamente competitivo ---
+    # Quando o "vencedor" do ranking tem confiança baixa, normalmente não é
+    # porque ele é claramente ruim, e sim porque VÁRIOS decks (em geral, os
+    # de poucos jogos) estão genuinamente indistinguíveis entre si com o
+    # volume de dados disponível. Em vez de só apontar 1 vencedor isolado,
+    # listamos todos os decks cuja chance de serem o verdadeiro melhor
+    # passa de um limiar mínimo - ou seja, que não podem ser descartados
+    # como "claramente inferiores" aos demais.
+    LIMIAR_COMPETITIVO = 0.05  # 5%: ajuste pra ser mais ou menos rigoroso
+    grupo_competitivo = sorted(
+        (n for n in nomes if probs_melhor[n] >= LIMIAR_COMPETITIVO),
+        key=lambda n: -probs_melhor[n],
+    )
+    print(f"\nGRUPO ESTATISTICAMENTE COMPETITIVO (P(melhor) >= {LIMIAR_COMPETITIVO*100:.0f}%):")
+    if len(grupo_competitivo) == 1:
+        print(f"  Apenas {grupo_competitivo[0]} - vitória bem definida, sem concorrentes plausíveis.")
+    else:
+        for n in grupo_competitivo:
+            print(f"  {n:10s}: P(melhor) = {probs_melhor[n]*100:5.1f}%  |  jogos = {variantes[n]['jogos']}")
+        print(f"  -> Estes {len(grupo_competitivo)} decks não podem ser distinguidos com confiança entre si;")
+        print(f"     o restante (jogos insuficientes ou winrate consistentemente mais baixo) pode ser descartado.")
+
     # --- perda esperada ---
     print("\nPERDA ESPERADA ao escolher cada variante (pontos percentuais de winrate)")
     print("-" * 90)
     for i, nome in enumerate(nomes):
         perda = np.mean(melhor_em_cada_sim - matriz_amostras[i])
         print(f"  {nome:10s}: {perda*100:5.2f} p.p.")
- 
+
     # --- comparações par a par ---
     print("\nCOMPARAÇÕES PAR A PAR: P(linha > coluna)")
     print("-" * 90)
@@ -222,13 +189,29 @@ def analisar_arquetipo(nome_arquetipo, variantes_lista):
         for j in range(i + 1, len(nomes)):
             p = np.mean(amostras[nomes[i]] > amostras[nomes[j]])
             print(f"  P({nomes[i]} > {nomes[j]}) = {p*100:.1f}%")
- 
+
     # --- melhor variante e seu deck code ---
     melhor_nome = max(probs_melhor, key=probs_melhor.get)
     melhor_deck_code = variantes[melhor_nome]["deck_code"]
-    print(f"\n>>> MELHOR VARIANTE: {melhor_nome}  (P(melhor) = {probs_melhor[melhor_nome]*100:.1f}%)")
+    prob_vencedor = probs_melhor[melhor_nome]
+
+    # Rótulo de confiança: o "vencedor" do ranking pode ter ganho por uma
+    # margem ínfima (ex: 50.7% vs 49.3% - estatisticamente um empate) ou
+    # por uma margem clara (ex: 99% - confiança real). O P(melhor) sozinho
+    # já informa isso, mas o rótulo evita ter que ler os números toda vez.
+    # Os limiares (90%/65%) são uma convenção arbitrária, ajuste se quiser
+    # ser mais ou menos rigoroso.
+    if prob_vencedor >= 0.90:
+        confianca = "ALTA - diferença bem sustentada pelos dados"
+    elif prob_vencedor >= 0.65:
+        confianca = "MODERADA - vencedor provável, mas com incerteza real"
+    else:
+        confianca = "BAIXA - praticamente empate estatístico, não decida só por isso"
+
+    print(f"\n>>> MELHOR VARIANTE: {melhor_nome}  (P(melhor) = {prob_vencedor*100:.1f}%)")
+    print(f">>> CONFIANÇA: {confianca}")
     print(f">>> DECK CODE: {melhor_deck_code}")
- 
+
     # --- gráfico das posteriors, salvo com o nome do arquétipo ---
     # O eixo X se ajusta à faixa onde as posteriors realmente vivem, em vez
     # de fixar [0,1] sempre. Isso importa porque com poucos jogos as
@@ -242,44 +225,51 @@ def analisar_arquetipo(nome_arquetipo, variantes_lista):
     margem = 0.25 * faixa if faixa > 0 else 0.05  # 25% de respiro nas bordas
     x_min = max(0.0, min(limites_inf) - margem)
     x_max = min(1.0, max(limites_sup) + margem)
- 
+
     x = np.linspace(x_min, x_max, 1000)
     plt.figure(figsize=(9, 5))
+    # P(melhor) entra na legenda de propósito: a ALTURA do pico reflete só
+    # a precisão da estimativa (decks com mais jogos têm picos mais altos
+    # e estreitos), não quem tem o winrate mais alto. Sem esse número ao
+    # lado, é fácil olhar pro gráfico e achar que o pico mais alto "venceu"
+    # - quando na real ele pode estar confiante sobre um valor MENOR.
     for nome, (a, b) in posteriors.items():
-        plt.plot(x, stats.beta.pdf(x, a, b), label=f"{nome} (n={variantes[nome]['jogos']})", linewidth=2)
+        rotulo = f"{nome} (n={variantes[nome]['jogos']}, P(melhor)={probs_melhor[nome]*100:.0f}%)"
+        plt.plot(x, stats.beta.pdf(x, a, b), label=rotulo, linewidth=2)
     plt.xlabel("Winrate verdadeiro (p)")
     plt.ylabel("Densidade de probabilidade")
     plt.title(f"Distribuições posteriores do winrate - {nome_arquetipo}")
-    plt.legend()
+    plt.legend(fontsize=8)
     plt.tight_layout()
     nome_arquivo_grafico = f"posteriors_{nome_arquivo_seguro(nome_arquetipo)}.png"
     plt.savefig(nome_arquivo_grafico, dpi=150)
     plt.close()
     print(f">>> Gráfico salvo em: {nome_arquivo_grafico}")
- 
+
     return {
         "arquetipo": nome_arquetipo,
         "melhor_variante": melhor_nome,
         "melhor_deck_code": melhor_deck_code,
-        "prob_melhor": probs_melhor[melhor_nome],
+        "prob_melhor": prob_vencedor,
+        "confianca": confianca,
         "grafico": nome_arquivo_grafico,
     }
- 
- 
+
+
 # ---------------------------------------------------------------------------
 # 3) RODAR PARA TODOS OS ARQUÉTIPOS
 # ---------------------------------------------------------------------------
 resultados = []
 for nome_arquetipo, variantes_lista in arquetipos.items():
     resultados.append(analisar_arquetipo(nome_arquetipo, variantes_lista))
- 
+
 # ---------------------------------------------------------------------------
 # 4) RESUMO FINAL - MELHOR DECK DE CADA ARQUÉTIPO (também salvo em .txt)
 # ---------------------------------------------------------------------------
 # Construímos as linhas do resumo numa lista primeiro, e só então printamos
 # E gravamos em arquivo - assim o texto impresso na tela é IDÊNTICO ao
 # salvo, sem duplicar a lógica de formatação em dois lugares.
- 
+
 linhas_resumo = []
 linhas_resumo.append("=" * 90)
 linhas_resumo.append("RESUMO FINAL - MELHOR VARIANTE DE CADA ARQUÉTIPO")
@@ -287,15 +277,16 @@ linhas_resumo.append("=" * 90)
 for r in resultados:
     linhas_resumo.append(f"\n{r['arquetipo']}:")
     linhas_resumo.append(f"  Melhor variante : {r['melhor_variante']}  (P(melhor) = {r['prob_melhor']*100:.1f}%)")
+    linhas_resumo.append(f"  Confiança       : {r['confianca']}")
     linhas_resumo.append(f"  Deck code       : {r['melhor_deck_code']}")
     linhas_resumo.append(f"  Gráfico salvo em: {r['grafico']}")
- 
+
 texto_resumo = "\n".join(linhas_resumo)
- 
+
 print("\n" + texto_resumo)
- 
+
 NOME_ARQUIVO_RESUMO = "resumo_final.txt"
 with open(NOME_ARQUIVO_RESUMO, "w", encoding="utf-8") as f:
     f.write(texto_resumo + "\n")
- 
+
 print(f"\nResumo final também salvo em: {NOME_ARQUIVO_RESUMO}")
